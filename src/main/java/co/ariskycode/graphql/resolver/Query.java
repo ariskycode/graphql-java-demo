@@ -2,6 +2,9 @@ package co.ariskycode.graphql.resolver;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 
 import co.ariskycode.graphql.model.Attendee;
@@ -11,14 +14,18 @@ import co.ariskycode.graphql.model.Talk;
 import co.ariskycode.graphql.service.AttendeeService;
 import co.ariskycode.graphql.service.SpeakerService;
 import co.ariskycode.graphql.service.TalkService;
-import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
+@Component
 public class Query implements GraphQLQueryResolver {
 
-	private final AttendeeService attendeeService;
-	private final SpeakerService speakerService;
-	private final TalkService talkService;
+	@Autowired
+	private AttendeeService attendeeService;
+	
+	@Autowired
+	private SpeakerService speakerService;
+	
+	@Autowired
+	private TalkService talkService;
 
 	public List<Attendee> allAttendees() {
 		return attendeeService.findAll();

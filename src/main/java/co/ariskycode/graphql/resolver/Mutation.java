@@ -1,18 +1,23 @@
 package co.ariskycode.graphql.resolver;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 
 import co.ariskycode.graphql.model.Speaker;
 import co.ariskycode.graphql.model.Talk;
 import co.ariskycode.graphql.service.SpeakerService;
 import co.ariskycode.graphql.service.TalkService;
-import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
+@Component
 public class Mutation implements GraphQLMutationResolver {
 	
-	private final SpeakerService speakerService;
-	private final TalkService talkService;
+	@Autowired
+	private SpeakerService speakerService;
+	
+	@Autowired
+	private TalkService talkService;
 	
 	public Speaker addSpeaker(String name) {
 		Speaker speaker = new Speaker();
