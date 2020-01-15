@@ -20,8 +20,7 @@ public class Mutation implements GraphQLMutationResolver {
 	private TalkService talkService;
 	
 	public Speaker addSpeaker(String name) {
-		Speaker speaker = new Speaker();
-		speaker.setName(name);
+		Speaker speaker = Speaker.builder().name(name).build();
 		return speakerService.save(speaker);
 	}
 
