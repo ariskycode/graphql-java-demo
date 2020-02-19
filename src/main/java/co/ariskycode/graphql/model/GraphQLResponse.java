@@ -6,5 +6,6 @@ import lombok.Data;
 public class GraphQLResponse {
 	
 	private GraphQLObject data;
+	
 
 }

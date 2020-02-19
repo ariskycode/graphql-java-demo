@@ -36,4 +36,8 @@ public class SpeakerService {
 	public Speaker save(Speaker speaker) {
 		return speakerRepository.save(speaker);
 	}
+	
+	public Speaker findByName(String name) {
+		return speakerRepository.findByName(name);
+	}
 }

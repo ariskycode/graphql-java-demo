@@ -9,4 +9,5 @@ import lombok.Data;
 public class GraphQLObject {
 
 	private List<Map> list;
+	private Speaker speaker;
 }

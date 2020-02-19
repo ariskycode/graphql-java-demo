@@ -38,4 +38,5 @@ type Query {
   	allAttendees: [Attendee]
   	allConference: [Conference]
   	allHumans: [Human]
+  	speaker(name: String): Speaker
 }

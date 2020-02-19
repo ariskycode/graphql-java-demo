@@ -22,5 +22,11 @@ public class ClientController {
 	public List<Speaker> getSpeakers() {
 		return clientService.getSpeakers();
 	}
+	
+	@GetMapping("/speaker")
+	@ResponseStatus(HttpStatus.OK)
+	public Speaker getSpeaker(String name) {
+		return clientService.getSpeaker(name);
+	}
 
 }

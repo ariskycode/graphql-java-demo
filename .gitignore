@@ -26,3 +26,4 @@ hs_err_pid*
 *.project
 target
 .settings
+.sts4-cache/

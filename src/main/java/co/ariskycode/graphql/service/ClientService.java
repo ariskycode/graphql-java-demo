@@ -39,4 +39,20 @@ public class ClientService {
 		return speakers;
 	}
 	
+	public Speaker getSpeaker(String name) {
+		System.out.println("Calling endpoint /graphql");
+		Speaker speaker = new Speaker();
+		try {
+			String query = "{\"query\":\"query getSpeaker($name: String) {speaker(name: $name) { id name }}\",\"variables\":{\"name\":\""+ name +"\"}}";
+			RequestEntity<String> request = RequestEntity.post(new URI("http://localhost:8080/graphql"))
+						.accept(MediaType.APPLICATION_JSON).body(query);
+			ResponseEntity<GraphQLResponse> response = restTemplate.exchange(request, GraphQLResponse.class);
+			System.out.println(response.getBody().toString());
+			speaker = response.getBody().getData().getSpeaker();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return speaker;
+	}
+	
 }

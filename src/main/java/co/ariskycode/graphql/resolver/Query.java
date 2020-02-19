@@ -52,5 +52,9 @@ public class Query implements GraphQLQueryResolver {
 		allAttendees.addAll(allSpeakers);
 		return allAttendees;
 	}
+	
+	public Speaker getSpeaker(String name) {
+		return speakerService.findByName(name);
+	}
 
 }
